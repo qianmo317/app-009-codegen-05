@@ -1,4 +1,4 @@
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useChartStore } from '../store/chartStore';
 import { drawChartToCanvas } from '../utils/canvas';
 import { useEffect, useRef, useState } from 'react';
@@ -32,7 +32,15 @@ export default function Home() {
 
   return (
     <div style={{ padding: 24, maxWidth: 960, margin: '0 auto' }}>
-      <h1 style={{ fontSize: 24, marginBottom: 16 }}>我的图解</h1>
+      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 16 }}>
+        <h1 style={{ fontSize: 24, margin: 0 }}>我的图解</h1>
+        <Link
+          to="/orders"
+          style={{ fontSize: 14, color: '#8e6e4f', textDecoration: 'none', border: '1px solid #8e6e4f', borderRadius: 6, padding: '6px 14px' }}
+        >
+          🧶 定做毛衣/围巾跟单
+        </Link>
+      </div>
       <div style={{ display: 'flex', gap: 12, marginBottom: 24, alignItems: 'center' }}>
         <input type="number" value={newCols} onChange={(e) => setNewCols(Number(e.target.value))} style={{ width: 70, padding: '6px 8px' }} placeholder="宽" />
         <span>×</span>
